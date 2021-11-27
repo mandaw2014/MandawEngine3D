@@ -5,9 +5,9 @@ class Camera(object):
         self.FIRST_PERSON = rl.CAMERA_FIRST_PERSON
         self.PERSPECTIVE = rl.CAMERA_PERSPECTIVE
 
-        self.camera = rl.Camera3D(rl.Vector3(0, 0, 0))
-        self.camera.position = position
-        self.camera.target = target
-        self.camera.up = up
-        self.camera.fovy = fovy
-        self.camera.projection = self.PERSPECTIVE
+        self.cam = rl.Camera()
+        self.cam.position = position
+        self.cam.target = target
+        self.cam.up = up
+        self.cam.fovy = fovy
+        self.cam.projection = self.PERSPECTIVE

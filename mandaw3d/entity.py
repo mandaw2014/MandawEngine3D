@@ -16,7 +16,30 @@ class Entity(object):
         self.position = Vector3(self.x, self.y, self.z)
 
     def draw(self):
+        self.position = Vector3(self.x, self.y, self.z)
         if self.model == "cube":
             rl.draw_cube(self.position, self.width, self.height, self.length, self.color)
         if self.model == "plane":
             rl.draw_plane(self.position, Vector2(self.width, self.length), self.color)
+
+    def collide(self, entity):
+        if rl.check_collision_boxes(
+            rl.BoundingBox(
+                Vector3(self.x - self.width / 2,
+                        self.y - self.height / 2,
+                        self.z - self.length / 2),
+                Vector3(self.x + self.width / 2,
+                        self.y + self.height / 2,
+                        self.z + self.length / 2)
+                ), 
+            rl.BoundingBox(
+                Vector3(entity.x - entity.width / 2,
+                        entity.y - entity.height / 2,
+                        entity.z - entity.length / 2),
+                Vector3(entity.x + entity.width / 2,
+                        entity.y + entity.height / 2,
+                        entity.z + entity.length / 2))
+        ):
+            return True
+        else:
+            return False

@@ -1,6 +1,9 @@
+import raylibpy
 from mandaw3d import *
 
 mandaw = Mandaw(title = "Mandaw!", width = 800, height = 600, bg_color = (245, 245, 245, 255))
+
+mandaw.camera.type = raylibpy.CAMERA_FIRST_PERSON
 
 ground = Entity(mandaw, model = "plane", width = 32, height = 0, length = 32, x = 0, y = 0, z = 0, color = Color(200, 200, 200, 255))
 

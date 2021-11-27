@@ -25,7 +25,7 @@ class Mandaw(object):
         self.camera = Camera()
         self.camera.projection = rl.CAMERA_FIRST_PERSON
 
-        rl.set_camera_mode(self.camera.camera, self.camera.projection)
+        rl.set_camera_mode(self.camera.cam, rl.CAMERA_PERSPECTIVE)
 
     def _update(self, dt):
         for update in self.update_handlers:
@@ -40,10 +40,10 @@ class Mandaw(object):
             self.dt = rl.get_frame_time()
             self._update(self.dt)
             self.dt = rl.get_frame_time()
-            rl.update_camera(self.camera.camera)
+            rl.update_camera(self.camera.cam)
             rl.begin_drawing()
             rl.clear_background((self.bg_color[0], self.bg_color[1], self.bg_color[2], self.bg_color[3]))
-            rl.begin_mode3d(self.camera.camera)
+            rl.begin_mode3d(self.camera.cam)
             self._draw()
             rl.end_mode3d()
             rl.end_drawing()

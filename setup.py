@@ -9,5 +9,5 @@ setup(name='Mandaw3D',
       url='https://github.com/mandaw2014/MandawEngine3D',
       packages=['mandaw3d'],
       package_dir={'mandaw3d': 'mandaw3d'},
-      install_requires=["raylibpy"]
+      install_requires=["raylib-py"]
       )
